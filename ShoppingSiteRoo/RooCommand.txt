@@ -1,0 +1,6 @@
+web mvc setup
+
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+
+web mvc controller --class ~.Controller.ItemController --preferredMapping /item
+
