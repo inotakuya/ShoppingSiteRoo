@@ -4,3 +4,13 @@ persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
 
 web mvc controller --class ~.Controller.ItemController --preferredMapping /item
 
+entity jpa --class ~.domain.Item --testAutomatically
+
+field number --fieldName itemId --type long --notNull 
+field string --fieldName itemName --notNull 
+field number --fieldName price --type int --notNull 
+field string --fieldName description --notNull 
+field string --fieldName pictureUrl --notNull 
+
+web mvc all --package jp.com.inotaku.domain
+

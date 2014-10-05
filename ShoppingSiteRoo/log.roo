@@ -8,3 +8,12 @@ hint
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 00:17:33
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 00:18:35
 web mvc setup
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+web mvc controller --class ~.Controller.ItemController --preferredMapping /item
+entity jpa --class ~.domain.Item --testAutomatically 
+field number --fieldName itemId --type long --notNull 
+field string --fieldName itemName --notNull 
+field number --fieldName price --type int --notNull 
+field string --fieldName description --notNull 
+field string --fieldName pictureUrl --notNull 
+web mvc all --package jp.com.inotaku.domain

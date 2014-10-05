@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_jp_com_inotaku_domain_Item" object="${item}" path="/items" z="a/D3en9+4jN3H3zrAula5vco1bM=">
+        <field:display field="itemId" id="s_jp_com_inotaku_domain_Item_itemId" object="${item}" z="rz4PVS6RqTkpg/d4Sgq1ePyMPTE="/>
+        <field:display field="itemName" id="s_jp_com_inotaku_domain_Item_itemName" object="${item}" z="J0gsDjXb07T6mU5x4eYZrGNROG0="/>
+        <field:display field="price" id="s_jp_com_inotaku_domain_Item_price" object="${item}" z="EsqyIsQPSSeTB2XxLHD3lB2XlLI="/>
+        <field:display field="description" id="s_jp_com_inotaku_domain_Item_description" object="${item}" z="BH9NpwSsrlxqmChjiZ0zVlYlvGU="/>
+        <field:display field="pictureUrl" id="s_jp_com_inotaku_domain_Item_pictureUrl" object="${item}" z="LN4zl+1pjRh0tfrQ4XDE4hnmVp0="/>
+    </page:show>
+</div>
