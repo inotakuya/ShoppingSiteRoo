@@ -13,4 +13,7 @@
 <definition extends="default" name="items/update">
         <put-attribute name="body" value="/WEB-INF/views/items/update.jspx"/>
     </definition>
+<definition extends="default" name="items/findItemsByItemNameLike">
+        <put-attribute name="body" value="/WEB-INF/views/items/findItemsByItemNameLike.jspx"/>
+    </definition>
 </tiles-definitions>

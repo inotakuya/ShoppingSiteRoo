@@ -19,3 +19,4 @@ field string --fieldName pictureUrl --notNull
 web mvc all --package jp.com.inotaku.domain
 finder list --class jp.com.inotaku.domain.Item
 finder add findItemsByItemNameLike
+web mvc finder all 
