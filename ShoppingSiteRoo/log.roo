@@ -17,3 +17,5 @@ field number --fieldName price --type int --notNull
 field string --fieldName description --notNull 
 field string --fieldName pictureUrl --notNull 
 web mvc all --package jp.com.inotaku.domain
+finder list --class jp.com.inotaku.domain.Item
+finder add findItemsByItemNameLike
