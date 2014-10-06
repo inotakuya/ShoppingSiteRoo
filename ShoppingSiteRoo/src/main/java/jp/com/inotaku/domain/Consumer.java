@@ -10,36 +10,35 @@ import javax.persistence.OneToMany;
 
 @RooJavaBean
 @RooToString
-@RooJpaActiveRecord(finders = { "findItemsByItemNameLike" })
-public class Item {
+@RooJpaActiveRecord
+public class Consumer {
 
     /**
      */
     @NotNull
-    private long itemId;
+    private String consumerName;
 
     /**
      */
     @NotNull
-    private String itemName;
+    private String password;
 
     /**
      */
     @NotNull
-    private int price;
+    private String address;
 
     /**
      */
     @NotNull
-    private String description;
+    private String email;
 
     /**
      */
-    @NotNull
-    private String pictureUrl;
+    private int point;
 
     /**
      */
     @OneToMany(cascade = CascadeType.ALL)
-    private Set<SaleDetails> saleDetailList = new HashSet<SaleDetails>();
+    private Set<Sale> sale = new HashSet<Sale>();
 }

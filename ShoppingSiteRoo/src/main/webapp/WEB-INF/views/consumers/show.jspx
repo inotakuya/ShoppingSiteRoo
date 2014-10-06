@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_jp_com_inotaku_domain_Consumer" object="${consumer}" path="/consumers" z="tDd5AW/7h1lK4nyTPcwF9juGjNw=">
+        <field:display field="consumerName" id="s_jp_com_inotaku_domain_Consumer_consumerName" object="${consumer}" z="rfEHQTHNN2sWpt7mCJAOYMyYb7w="/>
+        <field:display field="password" id="s_jp_com_inotaku_domain_Consumer_password" object="${consumer}" z="2SRIhNK/FdwQlm0d7sI/sgKQ+Fc="/>
+        <field:display field="address" id="s_jp_com_inotaku_domain_Consumer_address" object="${consumer}" z="E2/hXyVNDGy25MuJXrJcO8aa70A="/>
+        <field:display field="email" id="s_jp_com_inotaku_domain_Consumer_email" object="${consumer}" z="0shnMa3H28B1WfGxr4IRr6dfBCE="/>
+        <field:display field="point" id="s_jp_com_inotaku_domain_Consumer_point" object="${consumer}" z="2M/eMAukaj0PqZ9pYdC9lN1BUxU="/>
+    </page:show>
+</div>

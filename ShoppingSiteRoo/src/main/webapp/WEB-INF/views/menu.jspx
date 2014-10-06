@@ -11,5 +11,17 @@
             <menu:item id="i_item_list" messageCode="global_menu_list" url="/items?page=1&amp;size=${empty param.size ? 10 : param.size}" z="4RxBMvjr2gUD8qO0DTWmjd1SzS0="/>
             <menu:item id="fi_item_itemnamelike" messageCode="global_menu_find" url="/items?find=ByItemNameLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="91iPi0L3EVzPpSLIHpdS6WwdZrE="/>
         </menu:category>
+        <menu:category id="c_sale" z="LFqT/mISyLmHFIErXGS0ab7uVTk=">
+            <menu:item id="i_sale_new" messageCode="global_menu_new" url="/sales?form" z="sS1JJOIMy9ZJtlki7wbKwpDGo/Q="/>
+            <menu:item id="i_sale_list" messageCode="global_menu_list" url="/sales?page=1&amp;size=${empty param.size ? 10 : param.size}" z="szeshiziypSm4t2Cb2YmYPv7nHM="/>
+        </menu:category>
+        <menu:category id="c_saledetails" z="r6b6ZRzwLQO3QiXLnCjKzA9iERc=">
+            <menu:item id="i_saledetails_new" messageCode="global_menu_new" url="/saledetailses?form" z="M7jEwNQtYpLmBlSCtV4AyeR69iQ="/>
+            <menu:item id="i_saledetails_list" messageCode="global_menu_list" url="/saledetailses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yr7H2LvjzE9fX4bLaNA5qccWpFM="/>
+        </menu:category>
+        <menu:category id="c_consumer" z="0hfqucevZwkp6H9S4oL+QoqH4MA=">
+            <menu:item id="i_consumer_new" messageCode="global_menu_new" url="/consumers?form" z="XSCQBaNketAIBDWp60h2NPnmRyQ="/>
+            <menu:item id="i_consumer_list" messageCode="global_menu_list" url="/consumers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="03p/C0m9yQ5sKbniMGG5xgwlDOA="/>
+        </menu:category>
     </menu:menu>
 </div>

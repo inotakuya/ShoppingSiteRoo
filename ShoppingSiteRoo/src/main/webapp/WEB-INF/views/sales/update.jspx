@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_jp_com_inotaku_domain_Sale" modelAttribute="sale" path="/sales" versionField="Version" z="5916rDyMoKVFqoBVU4Kc5lDNwTI=">
+        <field:input field="saleId" id="c_jp_com_inotaku_domain_Sale_saleId" required="true" z="qyP5rNM/qJoxZKCDRszumbjfa5I="/>
+        <field:datetime dateTimePattern="${sale_updatedate_date_format}" field="updateDate" id="c_jp_com_inotaku_domain_Sale_updateDate" z="Qag0+ZpHgEe71WbBvReXo+tfy/s="/>
+        <field:input field="totalAmount" id="c_jp_com_inotaku_domain_Sale_totalAmount" z="wYrpCSzOL5gccNCI+XDNqp6b4No="/>
+        <field:select field="consumer" id="c_jp_com_inotaku_domain_Sale_consumer" itemValue="id" items="${consumers}" path="/consumers" z="pINzxEHkT46kKmdacxWEH0ll8YY="/>
+        <field:simple field="saleDetailList" id="c_jp_com_inotaku_domain_Sale_saleDetailList" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale Details" z="HiEwXWdYgyu5+WME7238btWq5+o="/>
+    </form:update>
+</div>

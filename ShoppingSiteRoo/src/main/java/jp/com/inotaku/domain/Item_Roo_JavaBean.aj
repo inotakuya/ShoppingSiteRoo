@@ -3,7 +3,9 @@
 
 package jp.com.inotaku.domain;
 
+import java.util.Set;
 import jp.com.inotaku.domain.Item;
+import jp.com.inotaku.domain.SaleDetails;
 
 privileged aspect Item_Roo_JavaBean {
     
@@ -45,6 +47,14 @@ privileged aspect Item_Roo_JavaBean {
     
     public void Item.setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+    
+    public Set<SaleDetails> Item.getSaleDetailList() {
+        return this.saleDetailList;
+    }
+    
+    public void Item.setSaleDetailList(Set<SaleDetails> saleDetailList) {
+        this.saleDetailList = saleDetailList;
     }
     
 }

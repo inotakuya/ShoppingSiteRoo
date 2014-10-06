@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_jp_com_inotaku_domain_SaleDetails" modelAttribute="saleDetails" path="/saledetailses" versionField="Version" z="BID9BgFYwXYKw3zgzaD9o0jGYCE=">
+        <field:input field="saleDetailsId" id="c_jp_com_inotaku_domain_SaleDetails_saleDetailsId" required="true" z="2q9i1/e4unTkEfkI4/VGhL409go="/>
+        <field:datetime dateTimePattern="${saleDetails_updatedate_date_format}" field="updateDate" id="c_jp_com_inotaku_domain_SaleDetails_updateDate" z="ixEwAUaPhzwKlne5BJdPYoU+FSw="/>
+        <field:input field="quantity" id="c_jp_com_inotaku_domain_SaleDetails_quantity" required="true" z="9fMpli5Vw8Ya5ZK8YZ+TGpPLXaQ="/>
+        <field:select field="sale" id="c_jp_com_inotaku_domain_SaleDetails_sale" itemValue="id" items="${sales}" path="/sales" z="nlUhSU1XN8ydv+tf3aH/CRt3KGE="/>
+        <field:select field="item" id="c_jp_com_inotaku_domain_SaleDetails_item" itemValue="id" items="${items}" path="/items" z="FhWT2iVulSWUcZAcL1T8wnapGCs="/>
+    </form:update>
+</div>
