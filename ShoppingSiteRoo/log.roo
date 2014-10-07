@@ -55,3 +55,14 @@ field reference --fieldName item --type ~.domain.Item
 focus --class ~.domain.Item
 field set --fieldName saleDetailList --type ~.domain.SaleDetails --cardinality ONE_TO_MANY 
 web mvc all --package jp.com.inotaku.controller
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 02:08:35
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 10:24:44
+persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
+hint
+perform package 
+hint
+hint topics
+selenium test --controller ~.controller.ConsumerController
+selenium test --controller ~.controller.ItemController 
+selenium test --controller ~.controller.SaleController
+selenium test --controller ~.controller.SaleDetailsController
