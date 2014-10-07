@@ -66,3 +66,9 @@ selenium test --controller ~.controller.ConsumerController
 selenium test --controller ~.controller.ItemController 
 selenium test --controller ~.controller.SaleController
 selenium test --controller ~.controller.SaleDetailsController
+hint
+help
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 14:03:48
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 22:53:23
+perform tests
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 23:18:02
