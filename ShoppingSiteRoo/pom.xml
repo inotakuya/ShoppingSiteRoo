@@ -8,7 +8,7 @@
     <name>ShoppingSiteRoo</name>
     <properties>
         <aspectj.version>1.7.4</aspectj.version>
-        <java.version>6</java.version>
+        <java.version>7</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <roo.version>1.2.5.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
@@ -285,6 +285,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+    <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>1.4.3.RELEASE</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -437,24 +442,6 @@
                         <contextPath>/${project.name}</contextPath>
                     </webAppConfig>
                 </configuration>
-            </plugin>
-        <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>selenium-maven-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-                <browser>*firefox</browser>
-                <suite>src/main/webapp/selenium/test-suite.xhtml</suite>
-                <results>${project.build.directory}/selenium.html</results>
-                <startURL>http://localhost:4444/</startURL>
-            </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.seleniumhq.selenium</groupId>
-                        <artifactId>selenium-server</artifactId>
-                        <version>2.25.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>

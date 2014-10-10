@@ -5,9 +5,8 @@
     <form:update id="fu_jp_com_inotaku_domain_Consumer" modelAttribute="consumer" path="/consumers" versionField="Version" z="KL9Ijq89vVOkXdr3Ka8FeMQaK8g=">
         <field:input field="consumerName" id="c_jp_com_inotaku_domain_Consumer_consumerName" required="true" z="vIDOGvzSaQXPGHFjOThJS4Uxv1A="/>
         <field:input field="password" id="c_jp_com_inotaku_domain_Consumer_password" required="true" z="n2zOy9IdqFK8NFUXRCuP2DqyWTs="/>
-        <field:input field="address" id="c_jp_com_inotaku_domain_Consumer_address" required="true" z="D9w/IfSfQffdrDp/w+VUu5OlDjU="/>
         <field:input field="email" id="c_jp_com_inotaku_domain_Consumer_email" required="true" validationMessageCode="field_invalid_email" z="vbgNC2sjJitE4Yr/qEIiU9mMTlc="/>
         <field:input field="point" id="c_jp_com_inotaku_domain_Consumer_point" z="TIvWk72MS5YElLaPyROtfj8898I="/>
-        <field:simple field="sale" id="c_jp_com_inotaku_domain_Consumer_sale" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale" z="ZEYe1qsOc9YH+sLuFGRiumW9l1I="/>
+        <field:simple field="saleLiset" id="c_jp_com_inotaku_domain_Consumer_saleLiset" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale" z="VstjraZ3JJHcHuiyzMsu+7kGpg8="/>
     </form:update>
 </div>

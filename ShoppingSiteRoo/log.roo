@@ -1,74 +1,31 @@
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 00:03:26
-project --topLevelPackage jp.com.inotaku --projectName ShoppingSiteRoo --java 6 --packaging JAR
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 00:03:46
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 00:03:51
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 00:04:15
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 00:12:00
-hint
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 00:17:33
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 00:18:35
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 01:15:10
+project --topLevelPackage jp.com.inotaku --projectName ShoppingSiteRoo --java 7 --packaging JAR
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 01:15:55
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 01:21:30
 web mvc setup
 persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
-web mvc controller --class ~.Controller.ItemController --preferredMapping /item
-entity jpa --class ~.domain.Item --testAutomatically 
-field number --fieldName itemId --type long --notNull 
-field string --fieldName itemName --notNull 
-field number --fieldName price --type int --notNull 
-field string --fieldName description --notNull 
-field string --fieldName pictureUrl --notNull 
-web mvc all --package jp.com.inotaku.domain
-finder list --class jp.com.inotaku.domain.Item
-finder add findItemsByItemNameLike
-web mvc finder all 
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-06 01:54:55
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-06 20:57:55
-help entity
-// [failed] entity jpa --class ~.domain.User --testAutomatically 
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 00:34:50
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 00:34:57
-// [failed] hint
-hint 
-// [failed] entity jpa --class ~.domain.User --testAutomatically 
-entity jpa --class ~.domain.Consumer --testAutomatically 
-field string --fieldName consumerName --notNull 
+entity jpa --class ~.domain.Consumer --activeRecord false --testAutomatically --serializable 
+field string --fieldName consumerName --notNull --unique 
 field string --fieldName password --notNull 
-field string --fieldName address --notNull 
 field string --fieldName email --notNull 
 field number --fieldName point --type int 
-// [failed] entity jpa --class ~.domain.Order --testAutomatically 
-entity jpa --class ~.domain.Sale --testAutomatically 
+entity jpa --class ~.domain.Sale --activeRecord false --testAutomatically --serializable 
 field number --fieldName saleId --type long --notNull 
-field date --fieldName updateDate --type java.util.Date 
-field number --fieldName totalAmount --type int 
-entity jpa --class ~.domain.SaleDetails --testAutomatically 
-field number --fieldName saleDetailsId --type long --notNull 
-field date --fieldName updateDate --type java.util.Date 
-field number --fieldName quantity --type int --notNull 
+field date --fieldName updateDate --type java.util.Date --notNull 
+field number --fieldName totalAmount --type int --notNull --min 0
+field reference --fieldName consumer --type ~.domain.Consumer --notNull 
 focus --class ~.domain.Consumer
-field set --fieldName sale --type ~.domain.Sale --cardinality ONE_TO_MANY 
-focus --class ~.domain.Sale
-field reference --fieldName consumer --type ~.domain.Consumer 
-field set --fieldName saleDetailList --type ~.domain.SaleDetails --cardinality ONE_TO_MANY 
-focus --class ~.domain.SaleDetails
-field reference --fieldName sale --type ~.domain.Sale 
-field reference --fieldName item --type ~.domain.Item
-focus --class ~.domain.Item
-field set --fieldName saleDetailList --type ~.domain.SaleDetails --cardinality ONE_TO_MANY 
-web mvc all --package jp.com.inotaku.controller
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 02:08:35
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 10:24:44
-persistence setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY 
-hint
-perform package 
-hint
-hint topics
-selenium test --controller ~.controller.ConsumerController
-selenium test --controller ~.controller.ItemController 
-selenium test --controller ~.controller.SaleController
-selenium test --controller ~.controller.SaleDetailsController
-hint
-help
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 14:03:48
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-07 22:53:23
+field set --fieldName saleLiset --type ~.domain.Sale
+repository jpa --interface ~.repository.ConsumerRepository --entity ~.domain.Consumer
+repository jpa --interface ~.repository.SaleRepository --entity ~.domain.Sale
+service type --interface ~.service.Consumer.Service --entity ~.domain.Consumer
+service type --interface ~.service.ConsumerService --entity ~.domain.Consumer
+service type --interface ~.service.SaleService --entity ~.domain.Sale
+web mvc all --package ~.web
 perform tests
-// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-07 23:18:02
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 01:42:13
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 01:58:19
+perform tests
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 02:04:32
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 02:04:40
+hint

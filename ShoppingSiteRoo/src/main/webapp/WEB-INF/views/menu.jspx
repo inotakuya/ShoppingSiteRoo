@@ -3,28 +3,13 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
-        <menu:category id="c_controller" z="nj8Dm3hojIyIEyPkwE1UMDIs+K8=">
-            <menu:item id="i_controller__itemindex_id" messageCode="global_generic" url="/item/index" z="gYrY1KIJRyrFNRCdLNyLOXM922A="/>
-        </menu:category>
-        <menu:category id="c_item" z="jWO1pnucyLwI2bZuwfja4eCYsjU=">
-            <menu:item id="i_item_new" messageCode="global_menu_new" url="/items?form" z="I+/MpOYxZ47XKvsQW1PUi6uC060="/>
-            <menu:item id="i_item_list" messageCode="global_menu_list" url="/items?page=1&amp;size=${empty param.size ? 10 : param.size}" z="4RxBMvjr2gUD8qO0DTWmjd1SzS0="/>
-            <menu:item id="fi_item_itemnamelike" messageCode="global_menu_find" url="/items?find=ByItemNameLike&amp;form&amp;page=1&amp;size=${empty param.size ? 10 : param.size}" z="91iPi0L3EVzPpSLIHpdS6WwdZrE="/>
-        </menu:category>
         <menu:category id="c_sale" z="LFqT/mISyLmHFIErXGS0ab7uVTk=">
             <menu:item id="i_sale_new" messageCode="global_menu_new" url="/sales?form" z="sS1JJOIMy9ZJtlki7wbKwpDGo/Q="/>
             <menu:item id="i_sale_list" messageCode="global_menu_list" url="/sales?page=1&amp;size=${empty param.size ? 10 : param.size}" z="szeshiziypSm4t2Cb2YmYPv7nHM="/>
         </menu:category>
-        <menu:category id="c_saledetails" z="r6b6ZRzwLQO3QiXLnCjKzA9iERc=">
-            <menu:item id="i_saledetails_new" messageCode="global_menu_new" url="/saledetailses?form" z="M7jEwNQtYpLmBlSCtV4AyeR69iQ="/>
-            <menu:item id="i_saledetails_list" messageCode="global_menu_list" url="/saledetailses?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Yr7H2LvjzE9fX4bLaNA5qccWpFM="/>
-        </menu:category>
         <menu:category id="c_consumer" z="0hfqucevZwkp6H9S4oL+QoqH4MA=">
             <menu:item id="i_consumer_new" messageCode="global_menu_new" url="/consumers?form" z="XSCQBaNketAIBDWp60h2NPnmRyQ="/>
             <menu:item id="i_consumer_list" messageCode="global_menu_list" url="/consumers?page=1&amp;size=${empty param.size ? 10 : param.size}" z="03p/C0m9yQ5sKbniMGG5xgwlDOA="/>
-        </menu:category>
-        <menu:category id="c_seleniumtests" z="PPLMd2yNB6/LSbjIWogAacRPU+Q=">
-            <menu:item id="si_seleniumtests_test" messageCode="selenium_menu_test_suite" url="/resources/selenium/test-suite.xhtml" z="wwunW/IPDcunN97u41MvMJZQ2to="/>
         </menu:category>
     </menu:menu>
 </div>

@@ -6,7 +6,6 @@
         <table:table data="${consumers}" id="l_jp_com_inotaku_domain_Consumer" path="/consumers" z="SHESLTrspEJSvNdSiceQeuv0yPU=">
             <table:column id="c_jp_com_inotaku_domain_Consumer_consumerName" property="consumerName" z="JZ+ioCQ7ySJDAlfXXt6eS29UX9g="/>
             <table:column id="c_jp_com_inotaku_domain_Consumer_password" property="password" z="RSTO49rUFWQ1d07CelE/oZu3b7A="/>
-            <table:column id="c_jp_com_inotaku_domain_Consumer_address" property="address" z="UQv/LRgSATSvFxEKzgJjswAfulw="/>
             <table:column id="c_jp_com_inotaku_domain_Consumer_email" property="email" z="bDrFrrDYipoDvyUhGy0wQkd9Xtc="/>
             <table:column id="c_jp_com_inotaku_domain_Consumer_point" property="point" z="npz8bSPuxVlbBe/D+rGx283Sqgw="/>
         </table:table>

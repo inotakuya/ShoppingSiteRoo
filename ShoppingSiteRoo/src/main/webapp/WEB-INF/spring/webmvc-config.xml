@@ -72,5 +72,5 @@
       </list>
     </property>
   </bean>
-<bean class="jp.com.inotaku.domain.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
+<bean class="jp.com.inotaku.web.ApplicationConversionServiceFactoryBean" id="applicationConversionService"/>
 </beans>
