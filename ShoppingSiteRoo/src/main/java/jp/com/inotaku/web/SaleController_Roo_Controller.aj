@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import jp.com.inotaku.domain.Consumer;
 import jp.com.inotaku.domain.Sale;
-import jp.com.inotaku.domain.SaleDetail;
 import jp.com.inotaku.service.ConsumerService;
+import jp.com.inotaku.service.SaleDetailService;
 import jp.com.inotaku.service.SaleService;
 import jp.com.inotaku.web.SaleController;
 import org.joda.time.format.DateTimeFormat;
@@ -33,6 +33,9 @@ privileged aspect SaleController_Roo_Controller {
     
     @Autowired
     ConsumerService SaleController.consumerService;
+    
+    @Autowired
+    SaleDetailService SaleController.saleDetailService;
     
     @RequestMapping(method = RequestMethod.POST, produces = "text/html")
     public String SaleController.create(@Valid Sale sale, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
@@ -114,7 +117,7 @@ privileged aspect SaleController_Roo_Controller {
         uiModel.addAttribute("sale", sale);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("consumers", consumerService.findAllConsumers());
-        uiModel.addAttribute("saledetails", SaleDetail.findAllSaleDetails());
+        uiModel.addAttribute("saledetails", saleDetailService.findAllSaleDetails());
     }
     
     String SaleController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

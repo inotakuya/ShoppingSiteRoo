@@ -62,3 +62,7 @@ service type --interface ~.service.ItemService --entity ~.domain.Item
 web mvc all --package ~.web
 security setup 
 perform tests
+selenium test --controller ~.web.ConsumerController 
+selenium test --controller ~.web.ItemController
+selenium test --controller ~.web.SaleController
+selenium test --controller ~.web.SaleDetailController
