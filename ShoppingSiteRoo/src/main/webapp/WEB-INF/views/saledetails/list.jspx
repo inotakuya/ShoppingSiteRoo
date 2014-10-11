@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_jp_com_inotaku_domain_SaleDetail" items="${saledetails}" z="v2qZtF19dnPm74X1Q5y56k4+0Ds=">
+        <table:table data="${saledetails}" id="l_jp_com_inotaku_domain_SaleDetail" path="/saledetails" z="WBwSWK10PZKuF8KC9P7V+J0E0i8=">
+            <table:column id="c_jp_com_inotaku_domain_SaleDetail_saleDetailId" property="saleDetailId" z="/1LllzV5NHWaowz5jOg5rYof/WA="/>
+            <table:column date="true" dateTimePattern="${saleDetail_updatedate_date_format}" id="c_jp_com_inotaku_domain_SaleDetail_updateDate" property="updateDate" z="S5GO6qPYYLwBWEPgMCGv/hNVI7s="/>
+            <table:column id="c_jp_com_inotaku_domain_SaleDetail_quantity" property="quantity" z="NaZypqbzQs/LlZfj/tsQ+LZjyDc="/>
+            <table:column id="c_jp_com_inotaku_domain_SaleDetail_sale" property="sale" z="jut8vMJlSBxum429v38+ZCYWfVc="/>
+            <table:column id="c_jp_com_inotaku_domain_SaleDetail_item" property="item" z="mVORknJ23XfDYK5bQoUJxFFWREI="/>
+        </table:table>
+    </page:list>
+</div>
