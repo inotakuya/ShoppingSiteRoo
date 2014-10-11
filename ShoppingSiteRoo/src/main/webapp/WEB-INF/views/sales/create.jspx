@@ -7,6 +7,7 @@
         <field:datetime dateTimePattern="${sale_updatedate_date_format}" field="updateDate" id="c_jp_com_inotaku_domain_Sale_updateDate" required="true" z="aOV3QPmwWW/aPc5WNcAmb03tiDY="/>
         <field:input field="totalAmount" id="c_jp_com_inotaku_domain_Sale_totalAmount" min="0" required="true" z="Pczb9kV0/qz/qkQE+faB54DUHl4="/>
         <field:select field="consumer" id="c_jp_com_inotaku_domain_Sale_consumer" itemValue="id" items="${consumers}" path="/consumers" required="true" z="tT4A4YCrGsuv/bNQmJ78A+nllx8="/>
+        <field:simple field="saleDetailList" id="c_jp_com_inotaku_domain_Sale_saleDetailList" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale Detail" z="d4moLu95XVIS3qt3ACsjEpdqEtY="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_jp_com_inotaku_domain_Sale" render="${not empty dependencies}" z="Wtadb8rmessE6SC6q9UScd/YlQk="/>
 </div>

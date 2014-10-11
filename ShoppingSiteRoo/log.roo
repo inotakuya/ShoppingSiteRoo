@@ -29,3 +29,34 @@ perform tests
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 02:04:32
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 02:04:40
 hint
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 02:17:23
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 10:58:22
+entity jpa --class ~.domainSaleDetail --activeRecord --testAutomatically --serializable 
+field number --fieldName saleDetailId --type long --notNull --unique 
+field date --fieldName updateDate --type java.util.Date --notNull 
+field number --fieldName quantity --type int --notNull --min 0
+field reference --fieldName sale --type ~.domain.Sale --notNull 
+focus --class ~.domain.Sale
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-11 11:04:38
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-11 11:04:48
+entity jpa --class ~.domain.SaleDetail --activeRecord --testAutomatically --serializable 
+field number --fieldName saleDetailId --type long --notNull --unique 
+field date --fieldName updateDate --type java.util.Date --notNull 
+field number --fieldName quantity --type int --notNull --min 0
+field reference --fieldName sale --type ~.domain.Sale --notNull 
+focus --class ~.domain.Sale
+field set --fieldName saleDetailList --type ~.domain.SaleDetail --cardinality ONE_TO_MANY 
+entity jpa --class ~.domain.Item --activeRecord --testAutomatically --serializable 
+field number --fieldName itemId --type long --notNull --unique 
+field string --fieldName itemName --notNull 
+field number --fieldName price --type int --notNull --min 0
+field string --fieldName description --notNull 
+field string --fieldName pictureUrl --notNull 
+field set --fieldName saleDetailList --type ~.domain.SaleDetail --cardinality ONE_TO_MANY 
+focus --class ~.domain.SaleDetail
+field reference --fieldName item --type ~.domain.Item --notNull 
+repository jpa --interface ~.repository.SaleDetailRepository --entity ~.domain.SaleDetail
+repository jpa --interface ~.repository.ItemRepository --entity ~.domain.Item
+service type --interface ~.service.SaleDetailService --entity ~.domain.SaleDetail
+service type --interface ~.service.ItemService --entity ~.domain.Item
+web mvc all --package ~.web

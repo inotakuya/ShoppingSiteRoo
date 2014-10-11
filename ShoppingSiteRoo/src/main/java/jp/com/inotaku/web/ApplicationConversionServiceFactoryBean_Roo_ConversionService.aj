@@ -4,8 +4,12 @@
 package jp.com.inotaku.web;
 
 import jp.com.inotaku.domain.Consumer;
+import jp.com.inotaku.domain.Item;
 import jp.com.inotaku.domain.Sale;
+import jp.com.inotaku.domain.SaleDetail;
 import jp.com.inotaku.service.ConsumerService;
+import jp.com.inotaku.service.ItemService;
+import jp.com.inotaku.service.SaleDetailService;
 import jp.com.inotaku.service.SaleService;
 import jp.com.inotaku.web.ApplicationConversionServiceFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +25,13 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     ConsumerService ApplicationConversionServiceFactoryBean.consumerService;
     
     @Autowired
+    ItemService ApplicationConversionServiceFactoryBean.itemService;
+    
+    @Autowired
     SaleService ApplicationConversionServiceFactoryBean.saleService;
+    
+    @Autowired
+    SaleDetailService ApplicationConversionServiceFactoryBean.saleDetailService;
     
     public Converter<Consumer, String> ApplicationConversionServiceFactoryBean.getConsumerToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<jp.com.inotaku.domain.Consumer, java.lang.String>() {
@@ -43,6 +53,30 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         return new org.springframework.core.convert.converter.Converter<java.lang.String, jp.com.inotaku.domain.Consumer>() {
             public jp.com.inotaku.domain.Consumer convert(String id) {
                 return getObject().convert(getObject().convert(id, Long.class), Consumer.class);
+            }
+        };
+    }
+    
+    public Converter<Item, String> ApplicationConversionServiceFactoryBean.getItemToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<jp.com.inotaku.domain.Item, java.lang.String>() {
+            public String convert(Item item) {
+                return new StringBuilder().append(item.getItemId()).append(' ').append(item.getItemName()).append(' ').append(item.getPrice()).append(' ').append(item.getDescription()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Item> ApplicationConversionServiceFactoryBean.getIdToItemConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, jp.com.inotaku.domain.Item>() {
+            public jp.com.inotaku.domain.Item convert(java.lang.Long id) {
+                return itemService.findItem(id);
+            }
+        };
+    }
+    
+    public Converter<String, Item> ApplicationConversionServiceFactoryBean.getStringToItemConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, jp.com.inotaku.domain.Item>() {
+            public jp.com.inotaku.domain.Item convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Item.class);
             }
         };
     }
@@ -71,13 +105,43 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<SaleDetail, String> ApplicationConversionServiceFactoryBean.getSaleDetailToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<jp.com.inotaku.domain.SaleDetail, java.lang.String>() {
+            public String convert(SaleDetail saleDetail) {
+                return new StringBuilder().append(saleDetail.getSaleDetailId()).append(' ').append(saleDetail.getUpdateDate()).append(' ').append(saleDetail.getQuantity()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, SaleDetail> ApplicationConversionServiceFactoryBean.getIdToSaleDetailConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, jp.com.inotaku.domain.SaleDetail>() {
+            public jp.com.inotaku.domain.SaleDetail convert(java.lang.Long id) {
+                return saleDetailService.findSaleDetail(id);
+            }
+        };
+    }
+    
+    public Converter<String, SaleDetail> ApplicationConversionServiceFactoryBean.getStringToSaleDetailConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, jp.com.inotaku.domain.SaleDetail>() {
+            public jp.com.inotaku.domain.SaleDetail convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), SaleDetail.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
         registry.addConverter(getConsumerToStringConverter());
         registry.addConverter(getIdToConsumerConverter());
         registry.addConverter(getStringToConsumerConverter());
+        registry.addConverter(getItemToStringConverter());
+        registry.addConverter(getIdToItemConverter());
+        registry.addConverter(getStringToItemConverter());
         registry.addConverter(getSaleToStringConverter());
         registry.addConverter(getIdToSaleConverter());
         registry.addConverter(getStringToSaleConverter());
+        registry.addConverter(getSaleDetailToStringConverter());
+        registry.addConverter(getIdToSaleDetailConverter());
+        registry.addConverter(getStringToSaleDetailConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import jp.com.inotaku.domain.Consumer;
 import jp.com.inotaku.domain.Sale;
+import jp.com.inotaku.domain.SaleDetail;
 import jp.com.inotaku.service.ConsumerService;
 import jp.com.inotaku.service.SaleService;
 import jp.com.inotaku.web.SaleController;
@@ -113,6 +114,7 @@ privileged aspect SaleController_Roo_Controller {
         uiModel.addAttribute("sale", sale);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("consumers", consumerService.findAllConsumers());
+        uiModel.addAttribute("saledetails", SaleDetail.findAllSaleDetails());
     }
     
     String SaleController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {
