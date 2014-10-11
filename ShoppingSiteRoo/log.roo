@@ -60,3 +60,5 @@ repository jpa --interface ~.repository.ItemRepository --entity ~.domain.Item
 service type --interface ~.service.SaleDetailService --entity ~.domain.SaleDetail
 service type --interface ~.service.ItemService --entity ~.domain.Item
 web mvc all --package ~.web
+security setup 
+perform tests
