@@ -19,6 +19,8 @@ import jp.com.inotaku.domain.Sale;
 import jp.com.inotaku.domain.SaleDataOnDemand;
 import jp.com.inotaku.domain.SaleDetail;
 import jp.com.inotaku.domain.SaleDetailDataOnDemand;
+import jp.com.inotaku.repository.SaleDetailRepository;
+import jp.com.inotaku.service.SaleDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -35,6 +37,12 @@ privileged aspect SaleDetailDataOnDemand_Roo_DataOnDemand {
     
     @Autowired
     SaleDataOnDemand SaleDetailDataOnDemand.saleDataOnDemand;
+    
+    @Autowired
+    SaleDetailService SaleDetailDataOnDemand.saleDetailService;
+    
+    @Autowired
+    SaleDetailRepository SaleDetailDataOnDemand.saleDetailRepository;
     
     public SaleDetail SaleDetailDataOnDemand.getNewTransientSaleDetail(int index) {
         SaleDetail obj = new SaleDetail();
@@ -84,14 +92,14 @@ privileged aspect SaleDetailDataOnDemand_Roo_DataOnDemand {
         }
         SaleDetail obj = data.get(index);
         Long id = obj.getId();
-        return SaleDetail.findSaleDetail(id);
+        return saleDetailService.findSaleDetail(id);
     }
     
     public SaleDetail SaleDetailDataOnDemand.getRandomSaleDetail() {
         init();
         SaleDetail obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return SaleDetail.findSaleDetail(id);
+        return saleDetailService.findSaleDetail(id);
     }
     
     public boolean SaleDetailDataOnDemand.modifySaleDetail(SaleDetail obj) {
@@ -101,7 +109,7 @@ privileged aspect SaleDetailDataOnDemand_Roo_DataOnDemand {
     public void SaleDetailDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = SaleDetail.findSaleDetailEntries(from, to);
+        data = saleDetailService.findSaleDetailEntries(from, to);
         if (data == null) {
             throw new IllegalStateException("Find entries implementation for 'SaleDetail' illegally returned null");
         }
@@ -113,7 +121,7 @@ privileged aspect SaleDetailDataOnDemand_Roo_DataOnDemand {
         for (int i = 0; i < 10; i++) {
             SaleDetail obj = getNewTransientSaleDetail(i);
             try {
-                obj.persist();
+                saleDetailService.saveSaleDetail(obj);
             } catch (final ConstraintViolationException e) {
                 final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
@@ -122,7 +130,7 @@ privileged aspect SaleDetailDataOnDemand_Roo_DataOnDemand {
                 }
                 throw new IllegalStateException(msg.toString(), e);
             }
-            obj.flush();
+            saleDetailRepository.flush();
             data.add(obj);
         }
     }

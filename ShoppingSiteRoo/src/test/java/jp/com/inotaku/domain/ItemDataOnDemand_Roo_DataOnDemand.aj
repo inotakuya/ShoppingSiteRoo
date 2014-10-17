@@ -12,6 +12,9 @@ import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import jp.com.inotaku.domain.Item;
 import jp.com.inotaku.domain.ItemDataOnDemand;
+import jp.com.inotaku.repository.ItemRepository;
+import jp.com.inotaku.service.ItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
@@ -21,6 +24,12 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
     private Random ItemDataOnDemand.rnd = new SecureRandom();
     
     private List<Item> ItemDataOnDemand.data;
+    
+    @Autowired
+    ItemService ItemDataOnDemand.itemService;
+    
+    @Autowired
+    ItemRepository ItemDataOnDemand.itemRepository;
     
     public Item ItemDataOnDemand.getNewTransientItem(int index) {
         Item obj = new Item();
@@ -70,14 +79,14 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
         }
         Item obj = data.get(index);
         Long id = obj.getId();
-        return Item.findItem(id);
+        return itemService.findItem(id);
     }
     
     public Item ItemDataOnDemand.getRandomItem() {
         init();
         Item obj = data.get(rnd.nextInt(data.size()));
         Long id = obj.getId();
-        return Item.findItem(id);
+        return itemService.findItem(id);
     }
     
     public boolean ItemDataOnDemand.modifyItem(Item obj) {
@@ -87,7 +96,7 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
     public void ItemDataOnDemand.init() {
         int from = 0;
         int to = 10;
-        data = Item.findItemEntries(from, to);
+        data = itemService.findItemEntries(from, to);
         if (data == null) {
             throw new IllegalStateException("Find entries implementation for 'Item' illegally returned null");
         }
@@ -99,7 +108,7 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
         for (int i = 0; i < 10; i++) {
             Item obj = getNewTransientItem(i);
             try {
-                obj.persist();
+                itemService.saveItem(obj);
             } catch (final ConstraintViolationException e) {
                 final StringBuilder msg = new StringBuilder();
                 for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
@@ -108,7 +117,7 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
                 }
                 throw new IllegalStateException(msg.toString(), e);
             }
-            obj.flush();
+            itemRepository.flush();
             data.add(obj);
         }
     }

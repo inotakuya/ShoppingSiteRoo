@@ -7,9 +7,10 @@ import java.util.Iterator;
 import java.util.List;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
-import jp.com.inotaku.domain.SaleDetail;
 import jp.com.inotaku.domain.SaleDetailDataOnDemand;
 import jp.com.inotaku.domain.SaleDetailIntegrationTest;
+import jp.com.inotaku.repository.SaleDetailRepository;
+import jp.com.inotaku.service.SaleDetailService;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,10 +30,16 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
     @Autowired
     SaleDetailDataOnDemand SaleDetailIntegrationTest.dod;
     
+    @Autowired
+    SaleDetailService SaleDetailIntegrationTest.saleDetailService;
+    
+    @Autowired
+    SaleDetailRepository SaleDetailIntegrationTest.saleDetailRepository;
+    
     @Test
-    public void SaleDetailIntegrationTest.testCountSaleDetails() {
+    public void SaleDetailIntegrationTest.testCountAllSaleDetails() {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", dod.getRandomSaleDetail());
-        long count = SaleDetail.countSaleDetails();
+        long count = saleDetailService.countAllSaleDetails();
         Assert.assertTrue("Counter for 'SaleDetail' incorrectly reported there were no entries", count > 0);
     }
     
@@ -42,7 +49,7 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", obj);
         Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to provide an identifier", id);
-        obj = SaleDetail.findSaleDetail(id);
+        obj = saleDetailService.findSaleDetail(id);
         Assert.assertNotNull("Find method for 'SaleDetail' illegally returned null for id '" + id + "'", obj);
         Assert.assertEquals("Find method for 'SaleDetail' returned the incorrect identifier", id, obj.getId());
     }
@@ -50,9 +57,9 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
     @Test
     public void SaleDetailIntegrationTest.testFindAllSaleDetails() {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", dod.getRandomSaleDetail());
-        long count = SaleDetail.countSaleDetails();
+        long count = saleDetailService.countAllSaleDetails();
         Assert.assertTrue("Too expensive to perform a find all test for 'SaleDetail', as there are " + count + " entries; set the findAllMaximum to exceed this value or set findAll=false on the integration test annotation to disable the test", count < 250);
-        List<SaleDetail> result = SaleDetail.findAllSaleDetails();
+        List<SaleDetail> result = saleDetailService.findAllSaleDetails();
         Assert.assertNotNull("Find all method for 'SaleDetail' illegally returned null", result);
         Assert.assertTrue("Find all method for 'SaleDetail' failed to return any data", result.size() > 0);
     }
@@ -60,11 +67,11 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
     @Test
     public void SaleDetailIntegrationTest.testFindSaleDetailEntries() {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", dod.getRandomSaleDetail());
-        long count = SaleDetail.countSaleDetails();
+        long count = saleDetailService.countAllSaleDetails();
         if (count > 20) count = 20;
         int firstResult = 0;
         int maxResults = (int) count;
-        List<SaleDetail> result = SaleDetail.findSaleDetailEntries(firstResult, maxResults);
+        List<SaleDetail> result = saleDetailService.findSaleDetailEntries(firstResult, maxResults);
         Assert.assertNotNull("Find entries method for 'SaleDetail' illegally returned null", result);
         Assert.assertEquals("Find entries method for 'SaleDetail' returned an incorrect number of entries", count, result.size());
     }
@@ -75,37 +82,37 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", obj);
         Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to provide an identifier", id);
-        obj = SaleDetail.findSaleDetail(id);
+        obj = saleDetailService.findSaleDetail(id);
         Assert.assertNotNull("Find method for 'SaleDetail' illegally returned null for id '" + id + "'", obj);
         boolean modified =  dod.modifySaleDetail(obj);
         Integer currentVersion = obj.getVersion();
-        obj.flush();
+        saleDetailRepository.flush();
         Assert.assertTrue("Version for 'SaleDetail' failed to increment on flush directive", (currentVersion != null && obj.getVersion() > currentVersion) || !modified);
     }
     
     @Test
-    public void SaleDetailIntegrationTest.testMergeUpdate() {
+    public void SaleDetailIntegrationTest.testUpdateSaleDetailUpdate() {
         SaleDetail obj = dod.getRandomSaleDetail();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", obj);
         Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to provide an identifier", id);
-        obj = SaleDetail.findSaleDetail(id);
+        obj = saleDetailService.findSaleDetail(id);
         boolean modified =  dod.modifySaleDetail(obj);
         Integer currentVersion = obj.getVersion();
-        SaleDetail merged = obj.merge();
-        obj.flush();
+        SaleDetail merged = saleDetailService.updateSaleDetail(obj);
+        saleDetailRepository.flush();
         Assert.assertEquals("Identifier of merged object not the same as identifier of original object", merged.getId(), id);
         Assert.assertTrue("Version for 'SaleDetail' failed to increment on merge and flush directive", (currentVersion != null && obj.getVersion() > currentVersion) || !modified);
     }
     
     @Test
-    public void SaleDetailIntegrationTest.testPersist() {
+    public void SaleDetailIntegrationTest.testSaveSaleDetail() {
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", dod.getRandomSaleDetail());
         SaleDetail obj = dod.getNewTransientSaleDetail(Integer.MAX_VALUE);
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to provide a new transient entity", obj);
         Assert.assertNull("Expected 'SaleDetail' identifier to be null", obj.getId());
         try {
-            obj.persist();
+            saleDetailService.saveSaleDetail(obj);
         } catch (final ConstraintViolationException e) {
             final StringBuilder msg = new StringBuilder();
             for (Iterator<ConstraintViolation<?>> iter = e.getConstraintViolations().iterator(); iter.hasNext();) {
@@ -114,20 +121,20 @@ privileged aspect SaleDetailIntegrationTest_Roo_IntegrationTest {
             }
             throw new IllegalStateException(msg.toString(), e);
         }
-        obj.flush();
+        saleDetailRepository.flush();
         Assert.assertNotNull("Expected 'SaleDetail' identifier to no longer be null", obj.getId());
     }
     
     @Test
-    public void SaleDetailIntegrationTest.testRemove() {
+    public void SaleDetailIntegrationTest.testDeleteSaleDetail() {
         SaleDetail obj = dod.getRandomSaleDetail();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to initialize correctly", obj);
         Long id = obj.getId();
         Assert.assertNotNull("Data on demand for 'SaleDetail' failed to provide an identifier", id);
-        obj = SaleDetail.findSaleDetail(id);
-        obj.remove();
-        obj.flush();
-        Assert.assertNull("Failed to remove 'SaleDetail' with identifier '" + id + "'", SaleDetail.findSaleDetail(id));
+        obj = saleDetailService.findSaleDetail(id);
+        saleDetailService.deleteSaleDetail(obj);
+        saleDetailRepository.flush();
+        Assert.assertNull("Failed to remove 'SaleDetail' with identifier '" + id + "'", saleDetailService.findSaleDetail(id));
     }
     
 }

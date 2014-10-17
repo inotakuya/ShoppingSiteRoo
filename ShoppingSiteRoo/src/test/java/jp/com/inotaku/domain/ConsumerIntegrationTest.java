@@ -7,5 +7,7 @@ public class ConsumerIntegrationTest {
 
     @Test
     public void testMarkerMethod() {
+
     }
+    
 }
