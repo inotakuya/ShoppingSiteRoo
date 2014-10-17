@@ -119,3 +119,5 @@ selenium test --controller ~.web.SaleDetailController
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-17 02:25:26
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-17 11:37:36
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-17 16:05:15
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-17 16:24:11
+persistence setup --database HYPERSONIC_PERSISTENT --provider HIBERNATE 
