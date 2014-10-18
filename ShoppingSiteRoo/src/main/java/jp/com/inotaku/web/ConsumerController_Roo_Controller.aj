@@ -5,14 +5,11 @@ package jp.com.inotaku.web;
 
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 import jp.com.inotaku.domain.Consumer;
-import jp.com.inotaku.service.ConsumerService;
 import jp.com.inotaku.service.SaleService;
 import jp.com.inotaku.web.ConsumerController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,21 +20,7 @@ import org.springframework.web.util.WebUtils;
 privileged aspect ConsumerController_Roo_Controller {
     
     @Autowired
-    ConsumerService ConsumerController.consumerService;
-    
-    @Autowired
     SaleService ConsumerController.saleService;
-    
-    @RequestMapping(method = RequestMethod.POST, produces = "text/html")
-    public String ConsumerController.create(@Valid Consumer consumer, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, consumer);
-            return "consumers/create";
-        }
-        uiModel.asMap().clear();
-        consumerService.saveConsumer(consumer);
-        return "redirect:/consumers/" + encodeUrlPathSegment(consumer.getId().toString(), httpServletRequest);
-    }
     
     @RequestMapping(params = "form", produces = "text/html")
     public String ConsumerController.createForm(Model uiModel) {
@@ -64,17 +47,6 @@ privileged aspect ConsumerController_Roo_Controller {
             uiModel.addAttribute("consumers", consumerService.findAllConsumers());
         }
         return "consumers/list";
-    }
-    
-    @RequestMapping(method = RequestMethod.PUT, produces = "text/html")
-    public String ConsumerController.update(@Valid Consumer consumer, BindingResult bindingResult, Model uiModel, HttpServletRequest httpServletRequest) {
-        if (bindingResult.hasErrors()) {
-            populateEditForm(uiModel, consumer);
-            return "consumers/update";
-        }
-        uiModel.asMap().clear();
-        consumerService.updateConsumer(consumer);
-        return "redirect:/consumers/" + encodeUrlPathSegment(consumer.getId().toString(), httpServletRequest);
     }
     
     @RequestMapping(value = "/{id}", params = "form", produces = "text/html")

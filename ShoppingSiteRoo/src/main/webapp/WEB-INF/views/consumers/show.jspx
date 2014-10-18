@@ -4,7 +4,7 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_jp_com_inotaku_domain_Consumer" object="${consumer}" path="/consumers" z="tDd5AW/7h1lK4nyTPcwF9juGjNw=">
         <field:display field="consumerName" id="s_jp_com_inotaku_domain_Consumer_consumerName" object="${consumer}" z="rfEHQTHNN2sWpt7mCJAOYMyYb7w="/>
-        <field:display field="password" id="s_jp_com_inotaku_domain_Consumer_password" object="${consumer}" z="2SRIhNK/FdwQlm0d7sI/sgKQ+Fc="/>
+        <field:display field="password" id="s_jp_com_inotaku_domain_Consumer_password" object="${consumer}" render="false" z="user-managed"/>
         <field:display field="email" id="s_jp_com_inotaku_domain_Consumer_email" object="${consumer}" z="0shnMa3H28B1WfGxr4IRr6dfBCE="/>
         <field:display field="point" id="s_jp_com_inotaku_domain_Consumer_point" object="${consumer}" z="2M/eMAukaj0PqZ9pYdC9lN1BUxU="/>
     </page:show>
