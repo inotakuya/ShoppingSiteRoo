@@ -7,7 +7,7 @@
         <field:input field="itemName" id="c_jp_com_inotaku_domain_Item_itemName" required="true" z="eOT3s2oJNXw62sSFJ/Ko1CCPlbw="/>
         <field:input field="price" id="c_jp_com_inotaku_domain_Item_price" min="0" required="true" z="BS8P6MguoKJ50joK0zC/14H32+o="/>
         <field:input field="description" id="c_jp_com_inotaku_domain_Item_description" required="true" z="ZyfK5SWx1GRufFfzO3cLJplbOSs="/>
-        <field:input field="pictureUrl" id="c_jp_com_inotaku_domain_Item_pictureUrl" required="true" z="xke5Dt40jxYUaqoV8rko8yj6sHk="/>
         <field:simple field="saleDetailList" id="c_jp_com_inotaku_domain_Item_saleDetailList" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale Detail" z="LDNeY6WYeLGmDm7KgYxxRAavxfw="/>
+        <field:textarea field="image" id="c_jp_com_inotaku_domain_Item_image" required="true" z="i/WB158okxlwPD2Y8nKzMFhXO2M="/>
     </form:update>
 </div>

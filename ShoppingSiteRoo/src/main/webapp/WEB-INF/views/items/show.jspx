@@ -7,6 +7,7 @@
         <field:display field="itemName" id="s_jp_com_inotaku_domain_Item_itemName" object="${item}" z="J0gsDjXb07T6mU5x4eYZrGNROG0="/>
         <field:display field="price" id="s_jp_com_inotaku_domain_Item_price" object="${item}" z="EsqyIsQPSSeTB2XxLHD3lB2XlLI="/>
         <field:display field="description" id="s_jp_com_inotaku_domain_Item_description" object="${item}" z="BH9NpwSsrlxqmChjiZ0zVlYlvGU="/>
-        <field:display field="pictureUrl" id="s_jp_com_inotaku_domain_Item_pictureUrl" object="${item}" z="LN4zl+1pjRh0tfrQ4XDE4hnmVp0="/>
+        <field:display field="image" id="s_jp_com_inotaku_domain_Item_image" object="${item}" render="false" z="user-managed"/>
+        <img height="256px" src="${item.id}/image"/>
     </page:show>
 </div>
