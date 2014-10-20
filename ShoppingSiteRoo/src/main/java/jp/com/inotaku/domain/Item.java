@@ -3,12 +3,16 @@ import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.serializable.RooSerializable;
 import org.springframework.roo.addon.tostring.RooToString;
+
 import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Min;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
 @RooJavaBean
@@ -42,7 +46,8 @@ public class Item {
     /**
      */
     @NotNull
-    private String pictureUrl;
+    @Lob
+    private byte[] image;
 
     /**
      */

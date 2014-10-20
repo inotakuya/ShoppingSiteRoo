@@ -41,12 +41,12 @@ privileged aspect Item_Roo_JavaBean {
         this.description = description;
     }
     
-    public String Item.getPictureUrl() {
-        return this.pictureUrl;
+    public byte[] Item.getImage() {
+        return this.image;
     }
     
-    public void Item.setPictureUrl(String pictureUrl) {
-        this.pictureUrl = pictureUrl;
+    public void Item.setImage(byte[] image) {
+        this.image = image;
     }
     
     public Set<SaleDetail> Item.getSaleDetailList() {

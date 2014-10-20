@@ -14,7 +14,7 @@ privileged aspect Item_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Item.entityManager;
     
-    public static final List<String> Item.fieldNames4OrderClauseFilter = java.util.Arrays.asList("itemId", "itemName", "price", "description", "pictureUrl", "saleDetailList");
+    public static final List<String> Item.fieldNames4OrderClauseFilter = java.util.Arrays.asList("itemId", "itemName", "price", "description", "image", "saleDetailList");
     
     public static final EntityManager Item.entityManager() {
         EntityManager em = new Item().entityManager;
