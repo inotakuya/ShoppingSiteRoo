@@ -61,7 +61,7 @@
       </c:otherwise>
     </c:choose>
   </c:if>
-  <c:if test="${not empty sort and sort}">
+  <c:if test="${not empty sort and sort}">				
     <c:choose>
       <c:when test="${empty columnSortProperties}">
         <c:set var="columnSortProperties" value="${property}" scope="request" />
