@@ -34,9 +34,9 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
     public Item ItemDataOnDemand.getNewTransientItem(int index) {
         Item obj = new Item();
         setDescription(obj, index);
+        setImage(obj, index);
         setItemId(obj, index);
         setItemName(obj, index);
-        setPictureUrl(obj, index);
         setPrice(obj, index);
         return obj;
     }
@@ -44,6 +44,11 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
     public void ItemDataOnDemand.setDescription(Item obj, int index) {
         String description = "description_" + index;
         obj.setDescription(description);
+    }
+    
+    public void ItemDataOnDemand.setImage(Item obj, int index) {
+        byte[] image = String.valueOf(index).getBytes();
+        obj.setImage(image);
     }
     
     public void ItemDataOnDemand.setItemId(Item obj, int index) {
@@ -54,11 +59,6 @@ privileged aspect ItemDataOnDemand_Roo_DataOnDemand {
     public void ItemDataOnDemand.setItemName(Item obj, int index) {
         String itemName = "itemName_" + index;
         obj.setItemName(itemName);
-    }
-    
-    public void ItemDataOnDemand.setPictureUrl(Item obj, int index) {
-        String pictureUrl = "pictureUrl_" + index;
-        obj.setPictureUrl(pictureUrl);
     }
     
     public void ItemDataOnDemand.setPrice(Item obj, int index) {
