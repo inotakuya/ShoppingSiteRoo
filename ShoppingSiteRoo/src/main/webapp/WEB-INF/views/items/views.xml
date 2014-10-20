@@ -13,4 +13,7 @@
 <definition extends="default" name="items/update">
         <put-attribute name="body" value="/WEB-INF/views/items/update.jspx"/>
     </definition>
+    <definition extends="user"  name="items/index2">
+        <put-attribute name="body" value="/WEB-INF/views/items/index2.jsp"/>
+    </definition>
 </tiles-definitions>
