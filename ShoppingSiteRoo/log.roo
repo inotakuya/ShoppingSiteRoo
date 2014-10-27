@@ -147,3 +147,13 @@ hint
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-19 00:52:50
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-20 00:40:47
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-20 04:12:57
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-20 14:27:23
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-20 14:29:27
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-22 23:48:50
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-23 19:35:50
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-23 19:52:39
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-27 12:22:08
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-27 13:02:20
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-10-27 13:04:05
+persistence setup --database HYPERSONIC_IN_MEMORY --provider HIBERNATE 
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-10-27 14:46:55
