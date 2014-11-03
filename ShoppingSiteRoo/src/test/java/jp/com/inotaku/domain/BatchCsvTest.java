@@ -51,9 +51,9 @@ public class BatchCsvTest {
 			e.printStackTrace();
 		}
 		
-		/*for(Consumer consumer:consumerService.findAllConsumers()){
+		for(Consumer consumer:consumerService.findAllConsumers()){
 			System.out.println(consumer);
-		}*/
+		}
 		
 			System.out.println("終了");
 	}

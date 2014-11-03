@@ -39,9 +39,22 @@ public class Consumer {
     /**
      */
     private int point;
+    
+    public Consumer(){};
+
+	public Consumer(String consumerName, String password, String email,
+			int point) {
+		super();
+		this.consumerName = consumerName;
+		this.password = password;
+		this.email = email;
+		this.point = point;
+	}
 
     /**
      */
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Sale> saleLiset = new HashSet<Sale>();
+    
+    
+/*    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Sale> saleLiset = new HashSet<Sale>();*/
 }

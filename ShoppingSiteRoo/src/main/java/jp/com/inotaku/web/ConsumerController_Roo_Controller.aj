@@ -6,9 +6,7 @@ package jp.com.inotaku.web;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import jp.com.inotaku.domain.Consumer;
-import jp.com.inotaku.service.SaleService;
 import jp.com.inotaku.web.ConsumerController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,9 +16,6 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 
 privileged aspect ConsumerController_Roo_Controller {
-    
-    @Autowired
-    SaleService ConsumerController.saleService;
     
     @RequestMapping(params = "form", produces = "text/html")
     public String ConsumerController.createForm(Model uiModel) {
@@ -67,7 +62,6 @@ privileged aspect ConsumerController_Roo_Controller {
     
     void ConsumerController.populateEditForm(Model uiModel, Consumer consumer) {
         uiModel.addAttribute("consumer", consumer);
-        uiModel.addAttribute("sales", saleService.findAllSales());
     }
     
     String ConsumerController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

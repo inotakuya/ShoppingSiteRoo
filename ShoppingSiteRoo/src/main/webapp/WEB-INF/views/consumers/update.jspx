@@ -7,6 +7,5 @@
         <field:input field="password" id="c_jp_com_inotaku_domain_Consumer_password" required="true" type="password" z="user-managed"/>
         <field:input field="email" id="c_jp_com_inotaku_domain_Consumer_email" required="true" validationMessageCode="field_invalid_email" z="vbgNC2sjJitE4Yr/qEIiU9mMTlc="/>
         <field:input field="point" id="c_jp_com_inotaku_domain_Consumer_point" z="TIvWk72MS5YElLaPyROtfj8898I="/>
-        <field:simple field="saleLiset" id="c_jp_com_inotaku_domain_Consumer_saleLiset" messageCode="entity_reference_not_managed" messageCodeAttribute="Sale" z="VstjraZ3JJHcHuiyzMsu+7kGpg8="/>
     </form:update>
 </div>

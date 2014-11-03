@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Component(value="consumerWriter")
-@Transactional(propagation=Propagation.REQUIRED)
+/*@Transactional(propagation=Propagation.REQUIRED)*/
 public class ConsumerWriter {
 
 	@Autowired
@@ -21,9 +21,5 @@ public class ConsumerWriter {
 	
 	public void write(Consumer consumer){
 		consumerService.saveConsumer(consumer);
-		for(Consumer newConsumer:consumerService.findAllConsumers()){
-			System.out.println(newConsumer);
-		}
-		System.out.println(consumer);
 	}
 }

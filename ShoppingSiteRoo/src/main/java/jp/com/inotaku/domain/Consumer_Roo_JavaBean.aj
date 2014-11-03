@@ -3,9 +3,7 @@
 
 package jp.com.inotaku.domain;
 
-import java.util.Set;
 import jp.com.inotaku.domain.Consumer;
-import jp.com.inotaku.domain.Sale;
 
 privileged aspect Consumer_Roo_JavaBean {
     
@@ -39,14 +37,6 @@ privileged aspect Consumer_Roo_JavaBean {
     
     public void Consumer.setPoint(int point) {
         this.point = point;
-    }
-    
-    public Set<Sale> Consumer.getSaleLiset() {
-        return this.saleLiset;
-    }
-    
-    public void Consumer.setSaleLiset(Set<Sale> saleLiset) {
-        this.saleLiset = saleLiset;
     }
     
 }
